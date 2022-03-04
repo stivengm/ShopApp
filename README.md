@@ -1,7 +1,5 @@
 # ShopApp
 
-A new Flutter project.
-
 ## Resumen
 
 Este proyecto está desarrollado en Flutter con el lenguaje de programación Dart.
