@@ -10,13 +10,28 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(
+            Icons.chevron_left_outlined,
+            color: Colors.grey,
+          ),
+          iconSize: 35.0,
+          onPressed: () => Navigator.pop(context),
+        ),
+        elevation: 0,
+        backgroundColor: bgColor,
+      ),
       body: _body(),
     );
   }
 
   Widget _body() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 10.0),
+      decoration: const BoxDecoration(
+        color: bgColor
+      ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [

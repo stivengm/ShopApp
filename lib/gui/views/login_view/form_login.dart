@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shop_app/constants.dart';
+import 'package:shop_app/gui/widgets/text_app.dart';
 
 class FormLogin extends StatelessWidget {
   const FormLogin({ Key? key }) : super(key: key);
@@ -21,11 +23,14 @@ class FormLogin extends StatelessWidget {
               // )
             ),
           ),
+          const SizedBox(height: 15.0),
           TextFormField(
-            decoration: InputDecoration(
+            decoration: const InputDecoration(
               hintText: 'Contraseña'
             ),
           ),
+          const SizedBox(height: 10.0),
+          const TextApp(text: 'Ha olvidado la contraseña?', color: blackColor)
         ],
       ),
     );
