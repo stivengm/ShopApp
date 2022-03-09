@@ -6,8 +6,6 @@ part 'buttons_state.dart';
 
 class ButtonsBloc extends Bloc<ButtonsEvent, ButtonsState> {
   ButtonsBloc() : super(ButtonsInitial()) {
-    on<ButtonsEvent>((event, emit) {
-      // TODO: implement event handler
-    });
+    on<ButtonsEvent>((event, emit) { });
   }
 }
