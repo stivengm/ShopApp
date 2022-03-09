@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/gui/views/login_view/form_login.dart';
 import 'package:shop_app/gui/widgets/primary_button.dart';
@@ -12,11 +13,9 @@ class LoginView extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          icon: const Icon(
-            Icons.chevron_left_outlined,
-            color: Colors.grey,
-          ),
+          icon: SvgPicture.asset('assets/icons/arrow_left.svg'),
           iconSize: 35.0,
+          color: greyColor,
           onPressed: () => Navigator.pop(context),
         ),
         elevation: 0,
