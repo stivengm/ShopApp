@@ -30,17 +30,44 @@ class _FormLoginState extends State<FormLogin> {
 
             },
             keyboardType: TextInputType.emailAddress,
-            decoration: const InputDecoration(
+            autocorrect: false,
+            decoration: InputDecoration(
               labelText: 'Email',
-              border: InputBorder.none
+              labelStyle: const TextStyle(
+                color: primaryColor
+              ),
+              filled: true,
+              fillColor: whiteColor,
+              focusedBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              border: OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: whiteColor
+                ),
+                borderRadius: BorderRadius.circular(10.0)
+              )
             ),
           ),
           const SizedBox(height: 15.0),
           TextFormField(
             obscureText: _passwordVisible,
             onChanged: (value) { },
+            autocorrect: false,
             decoration: InputDecoration(
               labelText: 'Contraseña',
+              labelStyle: const TextStyle(
+                color: primaryColor
+              ),
+              filled: true,
+              fillColor: whiteColor,
+              focusedBorder: InputBorder.none,
+              enabledBorder: InputBorder.none,
+              border: OutlineInputBorder(
+                borderSide: const BorderSide(
+                  color: whiteColor
+                ),
+                borderRadius: BorderRadius.circular(10.0)
+              ),
               suffixIcon: IconButton(
                 icon: Icon(
                   _passwordVisible
