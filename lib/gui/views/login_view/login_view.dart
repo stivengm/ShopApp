@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/constants.dart';
@@ -5,9 +6,14 @@ import 'package:shop_app/gui/views/login_view/form_login.dart';
 import 'package:shop_app/gui/widgets/primary_button.dart';
 import 'package:shop_app/gui/widgets/text_app.dart';
 
-class LoginView extends StatelessWidget {
+class LoginView extends StatefulWidget {
   const LoginView({ Key? key }) : super(key: key);
 
+  @override
+  State<LoginView> createState() => _LoginViewState();
+}
+
+class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,20 +44,21 @@ class LoginView extends StatelessWidget {
           const FormLogin(),
           PrimaryButton(
             text: 'Siguiente',
-            onPressed: () {}
+            onPressed: () => Navigator.pop(context)
           ),
           RichText(
-            text: const TextSpan(
+            text: TextSpan(
               text: 'No tienes una cuenta?',
-              style: TextStyle(
+              style: const TextStyle(
                 color: blackColor
               ),
               children: [
                 TextSpan(
                   text: ' Regístrate',
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.bold
-                  )
+                  ),
+                  recognizer: _registro()
                 )
               ]
             )
@@ -59,6 +66,14 @@ class LoginView extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  TapGestureRecognizer _registro() {
+
+    return TapGestureRecognizer()..onTap = () {
+      Navigator.pushNamed(context, 'register');
+    };
+
   }
 
 }
