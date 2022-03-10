@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/gui/widgets/primary_button.dart';
+import 'package:shop_app/gui/widgets/text_app.dart';
 
 
 class HomeView extends StatefulWidget {
@@ -15,7 +17,15 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const TextApp(text: 'Home'),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu
+          ),
+          onPressed: () => ZoomDrawer.of(context)!.toggle(),
+        ),
+      ),
       body: _body(),
       bottomNavigationBar: BottomNavigationBar(
         items: [
