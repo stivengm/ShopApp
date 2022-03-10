@@ -55,6 +55,15 @@ P --> E
 ```
 
 
+### Creación de proyecto iOS
+
+```sh
+# Generar proyecto de iOS
+flutter create .
+```
+
+NOTA: Al hacer esto se restablecerá todo el proyecto de iOS, se tendrá que configurar nuevamente en Bundle Identifier.
+
 
 ## Getting Started
 A few resources to get you started if this is your first Flutter project:
