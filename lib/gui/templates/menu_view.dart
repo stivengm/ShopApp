@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:shop_app/constants.dart';
+import 'package:shop_app/gui/widgets/primary_button.dart';
 import 'package:shop_app/gui/widgets/text_app.dart';
 
 
@@ -37,23 +39,31 @@ class MenuDrawerZoomView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: const Color(0xFF4B5669),
       body: SafeArea(
-        child: Column(
-          children: [
-            const Text("Hollaaaa mundoooo!!"),
-            Expanded(
-              child: SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Column(
-                  children: [
-                    ...MenuItems.all.map(buildMenuItem).toList()
-                  ],
+        child: Container(
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          width: size.width * .5,
+          child: Column(
+            children: [
+              const Text("Hollaaaa mundoooo!!"),
+              Expanded(
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Column(
+                    children: [
+                      ...MenuItems.all.map(buildMenuItem).toList()
+                    ],
+                  ),
                 ),
               ),
-            )
-          ],
+              PrimaryButton(text: 'Cerrar sesión', onPressed: () {
+                ZoomDrawer.of(context)!.close();
+              })
+            ],
+          ),
         ),
       ),
     );
