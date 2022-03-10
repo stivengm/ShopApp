@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shop_app/constants.dart';
-import 'package:shop_app/gui/widgets/text_app.dart';
 
 class PrimaryButton extends StatelessWidget {
   final String text;
@@ -12,7 +11,7 @@ class PrimaryButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: TextButton(
-        child: TextApp(text: text, fontSize: 20.0, fontWeight: FontWeight.bold),
+        child: Text(text, style: Theme.of(context).textTheme.headline6!.copyWith(color: whiteColor)),
         style: ButtonStyle(
           padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(12.0)),
           foregroundColor: MaterialStateProperty.all<Color>(whiteColor),

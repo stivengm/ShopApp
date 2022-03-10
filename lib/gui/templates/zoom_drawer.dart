@@ -45,9 +45,7 @@ class _ZoomDrawerAppState extends State<ZoomDrawerApp> {
         return const HomeView();
       case MenuItems.cart:
         return const CartView();
-      case MenuItems.test1:
-        return const HomeView();
-      case MenuItems.test2:
+      case MenuItems.favorites:
         return const HomeView();
       default:
       return const HomeView();
