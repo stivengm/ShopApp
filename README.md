@@ -19,6 +19,15 @@ Este proyecto está desarrollado en Flutter con el lenguaje de programación Dar
 flutter build apk
 ```
 
+### Generar un Build iOS
+
+```sh
+# Generar un Build .plist
+flutter run --release
+```
+
+> NOTA: En este caso tiene que estar el dispositivo conectado al Mac para poder instalar la aplicación.
+
 
 # Arquitectura App ShopApp
 
