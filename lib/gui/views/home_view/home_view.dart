@@ -20,9 +20,7 @@ class _HomeViewState extends State<HomeView> {
       appBar: AppBar(
         title: const TextApp(text: 'Home'),
         leading: IconButton(
-          icon: const Icon(
-            Icons.menu
-          ),
+          icon: SvgPicture.asset("assets/icons/menu.svg"),
           onPressed: () => ZoomDrawer.of(context)!.toggle(),
         ),
       ),
