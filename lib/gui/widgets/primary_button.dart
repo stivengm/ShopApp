@@ -11,14 +11,14 @@ class PrimaryButton extends StatelessWidget {
     return SizedBox(
       width: double.infinity,
       child: TextButton(
-        child: Text(text, style: Theme.of(context).textTheme.headline6!.copyWith(color: whiteColor)),
+        child: Text(text, style: Theme.of(context).textTheme.titleLarge!.copyWith(color: whiteColor)),
         style: ButtonStyle(
           padding: MaterialStateProperty.all<EdgeInsets>(const EdgeInsets.all(12.0)),
           foregroundColor: MaterialStateProperty.all<Color>(whiteColor),
           backgroundColor: MaterialStateProperty.all<Color>(primaryColor),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(18.0),
+              borderRadius: BorderRadius.circular(50.0),
               side: const BorderSide(color: primaryColor)
             )
           )
