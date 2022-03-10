@@ -1,9 +1,7 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/gui/views/login_view/form_login.dart';
-import 'package:shop_app/gui/widgets/primary_button.dart';
+import 'package:shop_app/gui/widgets/curved_widget.dart';
 import 'package:shop_app/gui/widgets/text_app.dart';
 
 class LoginView extends StatefulWidget {
@@ -17,63 +15,39 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-        leading: IconButton(
-          icon: SvgPicture.asset('assets/icons/arrow_left.svg'),
-          iconSize: 35.0,
-          color: greyColor,
-          onPressed: () => Navigator.pop(context),
-        ),
         elevation: 0,
-        backgroundColor: bgColor,
+        backgroundColor: Colors.transparent,
       ),
-      body: _body(),
-    );
-  }
-
-  Widget _body() {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 28.0, vertical: 10.0),
-      decoration: const BoxDecoration(
-        color: bgColor
-      ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
-        children: [
-          const TextApp(text: 'Inicio de sesión', color: blackColor,),
-          const FormLogin(),
-          PrimaryButton(
-            text: 'Siguiente',
-            onPressed: () => Navigator.pop(context)
-          ),
-          RichText(
-            text: TextSpan(
-              text: 'No tienes una cuenta?',
-              style: const TextStyle(
-                color: blackColor
-              ),
+      body: SizedBox(
+        height: double.infinity,
+        child: GestureDetector(
+          onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+          child: SingleChildScrollView(
+            child: Stack(
               children: [
-                TextSpan(
-                  text: ' Regístrate',
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold
+                CurvedWidget(
+                  curvedDistance: 80.0,
+                  curvedHeight: 80.0,
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.only(top: 100.0, left: 50.0),
+                    height: 300.0,
+                    color: primaryColor,
+                    child: const TextApp(text: 'Iniciar sesión', fontSize: 40.0),
                   ),
-                  recognizer: _registro()
+                ),
+                Container(
+                  margin: const EdgeInsets.only(top: 300.0, right: 28.0, left: 28.0),
+                  child: const FormLogin(),
                 )
-              ]
-            )
-          )
-        ],
+              ],
+            ),
+          ),
+        ),
       ),
     );
-  }
-
-  TapGestureRecognizer _registro() {
-
-    return TapGestureRecognizer()..onTap = () {
-      Navigator.pushNamed(context, 'register');
-    };
-
   }
 
 }
