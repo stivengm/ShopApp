@@ -12,6 +12,13 @@ class FormLogin extends StatefulWidget {
 }
 
 class _FormLoginState extends State<FormLogin> {
+  bool _passwordVisible = true;
+
+  @override
+  void initState() {
+    _passwordVisible = true;
+    super.initState();
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -22,20 +29,30 @@ class _FormLoginState extends State<FormLogin> {
             onChanged: (value) {
 
             },
+            keyboardType: TextInputType.emailAddress,
             decoration: const InputDecoration(
-              // hintText: 'Email',
               labelText: 'Email',
               border: InputBorder.none
-              // border: OutlineInputBorder(
-              //   borderRadius: BorderRadius.circular(8.0)
-              // )
             ),
           ),
           const SizedBox(height: 15.0),
           TextFormField(
-            decoration: const InputDecoration(
-              // hintText: 'Contraseña'
+            obscureText: _passwordVisible,
+            onChanged: (value) { },
+            decoration: InputDecoration(
               labelText: 'Contraseña',
+              suffixIcon: IconButton(
+                icon: Icon(
+                  _passwordVisible
+                  ? Icons.visibility_outlined
+                  : Icons.visibility_off_outlined
+                ),
+                onPressed: () {
+                  setState(() {
+                    _passwordVisible = !_passwordVisible;
+                  });
+                },
+              )
             ),
           ),
           const SizedBox(height: 10.0),
