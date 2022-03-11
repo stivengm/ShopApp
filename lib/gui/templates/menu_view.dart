@@ -46,7 +46,7 @@ class _MenuDrawerZoomViewState extends State<MenuDrawerZoomView> {
       backgroundColor: const Color(0xFF4B5669),
       body: SafeArea(
         child: Container(
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
           width: size.width * .5,
           child: Column(
             children: [

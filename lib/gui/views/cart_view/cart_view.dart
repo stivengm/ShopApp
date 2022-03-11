@@ -4,15 +4,20 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:shop_app/constants.dart';
 import 'package:shop_app/gui/widgets/primary_button.dart';
 
-class CartView extends StatelessWidget {
+class CartView extends StatefulWidget {
   const CartView({ Key? key }) : super(key: key);
 
+  @override
+  State<CartView> createState() => _CartViewState();
+}
 
+class _CartViewState extends State<CartView> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Container(
       color: bgColor,
+      padding: const EdgeInsets.only(bottom: 10.0),
       child: SafeArea(
         top: false,
         child: Scaffold(
@@ -70,11 +75,21 @@ class CartView extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
       child: Row(
         children: [
-          const Text('Imagen'),
+          Container(
+            width: 50.0,
+            margin: const EdgeInsets.only(right: 15.0),
+            child: Image.asset('assets/product_1.png'),
+          ),
           Expanded(
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text('Name product'),
+                Column(
+                  children: [
+                    const Text('Camisa'),
+                    Text('\$250', style: Theme.of(context).textTheme.headline6!.copyWith(fontSize: 19.0),)
+                  ],
+                ),
                 _actions()
               ],
             ),
@@ -103,5 +118,4 @@ class CartView extends StatelessWidget {
       ],
     );
   }
-
 }
